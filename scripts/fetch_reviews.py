@@ -66,7 +66,7 @@ def fetch_apple(app_id, countries, max_pages=10):
                     id_val = e.get("id", {})
                     rid = id_val.get("label", "") if isinstance(id_val, dict) else str(id_val or "")
                     out.append({"platform": "iOS", "rating": rating, "content": content,
-                                "version": version, "country": c, "_id": rid})
+                                "version": version, "country": c, "id": rid})
                 except Exception as ex:
                     print(f"[apple] skip entry: {ex}", file=sys.stderr)
                     continue
@@ -88,7 +88,7 @@ def fetch_google(pkg, countries, count):
             out.append({"platform": "Android", "rating": r.get("score"),
                         "content": (r.get("content") or "").strip(),
                         "version": r.get("reviewCreatedVersion") or "", "country": c,
-                        "_id": r.get("reviewId") or ""})
+                        "id": r.get("reviewId") or ""})
     return out
 
 
@@ -99,7 +99,7 @@ def dedupe(reviews):
     seen = set()
     out = []
     for r in reviews:
-        rid = (r.get("_id") or "").strip()
+        rid = (r.get("id") or "").strip()
         if rid:
             key = ("id", rid)
         elif r.get("content"):
@@ -110,7 +110,7 @@ def dedupe(reviews):
             if key in seen:
                 continue
             seen.add(key)
-        out.append({k: v for k, v in r.items() if k != "_id"})  # bỏ field nội bộ _id khỏi output
+        out.append(r)  # GIỮ field 'id' để so sánh tuần (weekly_diff.py dùng tới)
     return out
 
 
