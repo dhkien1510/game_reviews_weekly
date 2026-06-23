@@ -1,0 +1,9 @@
+# KHONG commit secret / output sinh ra
+config.local.json
+*_reviews.json
+reviews*.json
+report*.json
+report*.html
+*.overview.json
+__pycache__/
+*.pyc

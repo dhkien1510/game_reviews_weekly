@@ -1,0 +1,9 @@
+{
+  "_note": "KHONG dien secret that vao day neu repo la PUBLIC. Tren cloud routine, truyen secret qua bien moi truong (LARK_APP_ID, LARK_APP_SECRET, LARK_CHAT_ID). Script doc env truoc, file sau.",
+  "LARK_DOMAIN": "https://open.larksuite.com",
+  "LARK_APP_ID": "",
+  "LARK_APP_SECRET": "",
+  "LARK_CHAT_ID": "",
+  "LARK_WEBHOOK_URL": "",
+  "LARK_WEBHOOK_SECRET": ""
+}
