@@ -7,3 +7,9 @@ report*.html
 *.overview.json
 __pycache__/
 *.pyc
+
+# Artifact trung gian khi chay routine (chi history/ moi duoc commit)
+a.json
+b.json
+delta_*.json
+reviews_*.json
